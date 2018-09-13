@@ -23,10 +23,10 @@ int main()
 
 int introduction()
 {
-	printf("Please enter the title of the draw activity:\n");
+	printf("请输入活动名称：\n");
 	char ch0[BUF_SIZE];
 	fgets(ch0, BUF_SIZE, stdin);
-	printf("Please set up the lottery project information:\n");
+	printf("请输入活动简介：\n");
 	char ch1[BUF_SIZE];
 	fgets(ch1, BUF_SIZE,stdin);
 	printf("%s",ch0);
@@ -55,7 +55,7 @@ int statistics_inquire_delete()
 	n=GetInteger();
 	switch(n){
 		case 1:	show();break;
-		//case 2: delete();break;	
+		case 2: delete();break;	
 	}
 	return 0;
 }
@@ -65,6 +65,11 @@ int show()
 	char s[100];
 	FILE *fp0;
 	fp0 = fopen("gt","r");
-	fgets(s,100,fp0);
-	fputs(s,stdout);
+	while(fgets(s,100,fp0)!=NULL)
+		fputs(s,stdout);
+	return 0;
 }
+
+int delete()
+{
+
